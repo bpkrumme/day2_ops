@@ -1,6 +1,6 @@
 ---
 - name: Update the index.html of our basic website
-  hosts: web
+  hosts: '{{ target | default("all") }}'
   become: true
   tasks:
     - name: Ensure httpd is installed
