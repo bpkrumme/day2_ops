@@ -9,7 +9,10 @@
 
   rules:
     - name: Push event to repository
-      condition: event.payload.repository.name == "eda_demo"
+      condition: 
+        all:
+          - event.payload.repository.name == "day2ops"
+          - event.payload.modified == "testfile"
       action:
         run_job_template:
           name: "DAY2 - Deploy Web Content"
