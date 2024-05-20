@@ -9,7 +9,7 @@
 
   rules:
     - name: Push event to repository
-      condition: event["payload"]["repository"]["name"] == "day2ops"
+      condition: event.payload.repository.name == "day2ops"
       action:
         run_job_template:
           name: "DAY2 - Deploy Web Content"
