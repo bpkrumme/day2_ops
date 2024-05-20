@@ -11,7 +11,7 @@
     - name: Push event to repository
       condition: 
         all:
-          - event["payload"]["repository"]["name"]jq == "day2ops"
+          - event["payload"]["repository"]["name"] == "day2ops"
 #          - event["payload"]["commits"]["modified"] contains "testfile"
       action:
         run_job_template:
