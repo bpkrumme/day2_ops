@@ -11,5 +11,6 @@
     - name: Push event to repository
       condition: event.payload.repository.name == "eda_demo"
       action:
-        run_playbook:
-          name: deploy_site.yml
+        run_job_template:
+          name: "DAY2 - Deploy Web Content"
+          
