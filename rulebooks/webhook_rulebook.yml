@@ -13,4 +13,5 @@
       action:
         run_job_template:
           name: "DAY2 - Deploy Web Content"
+          organization: "Default"
           
