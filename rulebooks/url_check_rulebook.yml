@@ -1,0 +1,17 @@
+---
+- name: Watch a URL for the correct content
+  hosts: all
+  sources:
+    - name: Check a URL
+      ansible.eda.url_check:
+        urls:
+          - http://app01.bk.mobile
+          - http://app02.bk.mobile
+        delay: 10
+        verify_ssl: False
+
+  rules:
+    - name: print the event
+      condition: event.url_check.status == "down"
+      action:
+        debug:
