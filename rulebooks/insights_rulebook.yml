@@ -12,7 +12,7 @@
       condition: event.payload is defined
       action:
         debug:
-          msg: "Received: {{ event.payload.message }}"
+          msg: "Received: {{ event.payload }}"
     - name: Update Sec Site Code with event payload
       condition: event.payload is defined
       action:
@@ -20,4 +20,4 @@
           name: "DAY2 - Process Insights Notification"
           organization: "Default"
           job_args:
-            extra_vars: {"site_content": "Successfully processed Insights Notification with message: {{ event.payload.message }}"}
+            extra_vars: {"site_content": "{{ event.payload }}"}
