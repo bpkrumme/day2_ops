@@ -17,7 +17,7 @@
       condition: event.payload is defined
       action:
         run_job_template:
-          name: "DAY2 - Update Security Content"
+          name: "DAY2 - Process Insights Notification"
           organization: "Default"
           job_args:
             extra_vars:
