@@ -1,0 +1,24 @@
+---
+- name: Listen for events from Red Hat Insights
+  hosts: all
+
+  sources:
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5555
+
+  rules:
+    - name: Handle a Red Hat Insights event
+      condition: event.payload is defined
+      action:
+        debug:
+          msg: "Received: {{ event.payload }}"
+    - name: Update Sec Site Code with event payload
+      condition: event.payload is defined
+      action:
+        run_job_template:
+          name: "DAY2 - Update Security Content"
+          organization: "Default"
+          job_args:
+            extra_vars:
+              site_content: "{{ event.payload }}"
