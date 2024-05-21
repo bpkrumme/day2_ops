@@ -10,9 +10,7 @@
   rules:
     - name: Handle a Red Hat Insights event
       condition: event.payload is defined
-      actions:
-        debug:
-          msg: "Received: {{ event.payload }}"
+      action:
         run_job_template:
           name: "DAY2 - Process Insights Notification"
           organization: "Default"
