@@ -14,4 +14,6 @@
     - name: print the event
       condition: event.url_check.status == "down"
       action:
-        debug:
+        run_job_template:
+          name: "DAY2 - Deploy App Content"
+          organization: "Default"
