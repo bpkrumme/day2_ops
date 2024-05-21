@@ -18,4 +18,4 @@
           organization: "Default"
           job_args:
             extra_vars:
-              site_content: "{{ event.payload.timestamp }}"
+              - site_content: "{{ event.payload.timestamp }}"
