@@ -12,7 +12,7 @@
       condition: event.payload is defined
       action:
         debug:
-          msg: "Received: {{ event.payload.context }}"
+          msg: "Received: {{ event.payload.timestamp }}"
     - name: Update Sec Site Code with event payload
       condition: event.payload is defined
       action:
