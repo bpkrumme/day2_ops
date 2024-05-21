@@ -10,14 +10,11 @@
   rules:
     - name: Handle a Red Hat Insights event
       condition: event.payload is defined
-      action:
+      actions:
         debug:
-          msg: "Received: {{ event.payload.timestamp }}"
-    - name: Update Sec Site Code with event payload
-      condition: event.payload is defined
-      action:
+          msg: "Received: {{ event.payload }}"
         run_job_template:
           name: "DAY2 - Process Insights Notification"
           organization: "Default"
           job_args:
-            extra_vars: {"site_content": "{{ event.payload }}"}
+            extra_vars: {"site_content": "{{ event.payload.timestamp }}"}
