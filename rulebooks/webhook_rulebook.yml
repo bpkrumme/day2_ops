@@ -12,7 +12,7 @@
       condition: 
         all:
           - event["payload"]["repository"]["name"] == "day2ops"
-          - event["payload"]["head_commit"]["distinct"] == true
+          - event["payload"]["commits"] is select("modified", "testfile")
       action:
         run_job_template:
           name: "DAY2 - Deploy Web Content"
