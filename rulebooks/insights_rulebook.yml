@@ -8,6 +8,11 @@
         port: 5555
 
   rules:
+    - name: Handle a Red Hat Insights event
+      condition: event.payload is defined
+      action:
+        debug:
+          msg: "Received: {{ event.payload }}"
     - name: Update Sec Site Code with event payload
       condition: event.payload is defined
       action:
