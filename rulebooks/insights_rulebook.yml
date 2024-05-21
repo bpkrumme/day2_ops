@@ -17,4 +17,4 @@
           name: "DAY2 - Process Insights Notification"
           organization: "Default"
           job_args:
-            extra_vars: "{ site_content: {{ event.payload.timestamp }} }"
+            extra_vars: '{ "site_content": "{{ event.payload.timestamp }}" }'
