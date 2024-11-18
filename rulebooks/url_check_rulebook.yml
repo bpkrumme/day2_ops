@@ -5,8 +5,8 @@
     - name: Check a URL
       ansible.eda.url_check:
         urls:
-          - http://app01.bk.mobile
-          - http://app02.bk.mobile
+          - http://server01.bk.mobile
+          - http://server02.bk.mobile
         delay: 60
         verify_ssl: false
 
