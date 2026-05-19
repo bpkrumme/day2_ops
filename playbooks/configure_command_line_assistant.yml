@@ -1,6 +1,6 @@
 ---
 - name: Install command-line-assistant and point to Satellite
-  hosts: '{{ target | default("all") }}'
+  hosts: '{{ vm_name | default("none") }}'
   become: true
   tasks:
     - name: Install command-line-assistant package
