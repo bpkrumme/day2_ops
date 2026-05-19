@@ -1,0 +1,22 @@
+---
+- name: Install command-line-assistant and point to Satellite
+  hosts: '{{ target | default("all") }}'
+  become: true
+  tasks:
+    - name: Install command-line-assistant package
+      ansible.builtin.package:
+        name: command-line-assistant
+        state: present
+
+    - name: Set command-line-assistant endpoint to Satellite
+      ansible.builtin.lineinfile:
+        path: /etc/xdg/command-line-assistant/config.toml
+        regexp: '^endpoint\s*='
+        line: 'endpoint = "https://satellite.bk.lab/api/lightspeed/v1"'
+      notify: Restart command-line-assistant daemon
+
+  handlers:
+    - name: Restart command-line-assistant daemon
+      ansible.builtin.systemd:
+        name: clad
+        state: restarted
